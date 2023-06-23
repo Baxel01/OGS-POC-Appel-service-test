@@ -1,0 +1,14 @@
+#Thu Jun 22 16:54:03 CEST 2023
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot\ (copie)/src/main/java/org/acme/mails/services/SendEmailService.java=1687440034351
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot\ (copie)/src/main/java/org/acme/mails/springboot/Email.java=1687440381509
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot\ (copie)/src/main/java/org/acme/travels/services/GreetingTravellerService.java=1687421554508
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot\ (copie)/src/main/java/org/acme/travels/services/HelloService.java=1687438425580
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot\ (copie)/src/main/java/org/acme/travels/services/StoreTravellerService.java=1687421554508
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot\ (copie)/src/main/java/org/acme/travels/services/TravellerAuditService.java=1687421554508
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot\ (copie)/src/main/java/org/acme/travels/springboot/Address.java=1687421554508
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot\ (copie)/src/main/java/org/acme/travels/springboot/Traveller.java=1687421554508
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot\ (copie)/src/main/java/org/kie/kogito/tests/KogitoInfinispanSpringbootApplication.java=1687445615150
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot\ (copie)/src/main/resources/application.properties=1687421554508
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot\ (copie)/src/test/java/org/acme/travels/springboot/MultiParamServiceProcessTest.java=1687421554508
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot\ (copie)/src/test/java/org/acme/travels/springboot/TravellersProcessTest.java=1687421554508
+configuration*?=CE404AF1FE0C40C9D33E567867EE7EF6545C0DB

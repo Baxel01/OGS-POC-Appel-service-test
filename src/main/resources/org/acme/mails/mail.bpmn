@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" xmlns:xsi="xsi" id="_iF6FMfM5EDu-48TgR4EL2w" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
+  <bpmn2:itemDefinition id="_recipientItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="_messageItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="_7B613191-5F43-47C7-B337-BA9C46D57AB2_InMessageType" structureRef=""/>
+  <bpmn2:itemDefinition id="_7B613191-5F43-47C7-B337-BA9C46D57AB2_OutMessageType" structureRef=""/>
+  <bpmn2:itemDefinition id="__7B613191-5F43-47C7-B337-BA9C46D57AB2_recipientInputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__7B613191-5F43-47C7-B337-BA9C46D57AB2_messageInputXItem" structureRef="String"/>
+  <bpmn2:message id="_7B613191-5F43-47C7-B337-BA9C46D57AB2_InMessage" itemRef="_7B613191-5F43-47C7-B337-BA9C46D57AB2_InMessageType"/>
+  <bpmn2:message id="_7B613191-5F43-47C7-B337-BA9C46D57AB2_OutMessage" itemRef="_7B613191-5F43-47C7-B337-BA9C46D57AB2_OutMessageType"/>
+  <bpmn2:interface id="_7B613191-5F43-47C7-B337-BA9C46D57AB2_ServiceInterface" name="org.acme.mails.services.SendEmailService" implementationRef="org.acme.mails.services.SendEmailService">
+    <bpmn2:operation id="_7B613191-5F43-47C7-B337-BA9C46D57AB2_ServiceOperation" name="send" implementationRef="send">
+      <bpmn2:inMessageRef>_7B613191-5F43-47C7-B337-BA9C46D57AB2_InMessage</bpmn2:inMessageRef>
+      <bpmn2:outMessageRef>_7B613191-5F43-47C7-B337-BA9C46D57AB2_OutMessage</bpmn2:outMessageRef>
+    </bpmn2:operation>
+  </bpmn2:interface>
+  <bpmn2:collaboration id="_47CBEFDE-8477-44C4-B7A4-854FAA99D5B0" name="Default Collaboration">
+    <bpmn2:participant id="_67E70AB0-319C-4AA2-9F6E-3AAFBB546C30" name="Pool Participant" processRef="mail"/>
+  </bpmn2:collaboration>
+  <bpmn2:process id="mail" drools:packageName="org.acme.mails" drools:version="1.0" drools:adHoc="false" name="mail" isExecutable="true" processType="Public">
+    <bpmn2:property id="recipient" itemSubjectRef="_recipientItem" name="recipient"/>
+    <bpmn2:property id="message" itemSubjectRef="_messageItem" name="message"/>
+    <bpmn2:sequenceFlow id="_578B9F6E-C6E5-422C-95F9-52A2D10F3BF2" sourceRef="_7B613191-5F43-47C7-B337-BA9C46D57AB2" targetRef="_BF8F09D3-1A71-4FFB-9CB7-FAE1FCEF8C49"/>
+    <bpmn2:sequenceFlow id="_28359338-2ADE-4952-9CFB-3E7EF8A4677B" sourceRef="_D5D5A6CD-D3D4-490C-AB20-1F538D1DCF88" targetRef="_7B613191-5F43-47C7-B337-BA9C46D57AB2"/>
+    <bpmn2:endEvent id="_BF8F09D3-1A71-4FFB-9CB7-FAE1FCEF8C49">
+      <bpmn2:incoming>_578B9F6E-C6E5-422C-95F9-52A2D10F3BF2</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:serviceTask id="_7B613191-5F43-47C7-B337-BA9C46D57AB2" drools:serviceimplementation="Java" drools:serviceinterface="org.acme.mails.services.SendEmailService" drools:serviceoperation="send" name="Send email" implementation="Java" operationRef="_7B613191-5F43-47C7-B337-BA9C46D57AB2_ServiceOperation">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Send email]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>_28359338-2ADE-4952-9CFB-3E7EF8A4677B</bpmn2:incoming>
+      <bpmn2:outgoing>_578B9F6E-C6E5-422C-95F9-52A2D10F3BF2</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="_7B613191-5F43-47C7-B337-BA9C46D57AB2_recipientInputX" drools:dtype="String" itemSubjectRef="__7B613191-5F43-47C7-B337-BA9C46D57AB2_recipientInputXItem" name="recipient"/>
+        <bpmn2:dataInput id="_7B613191-5F43-47C7-B337-BA9C46D57AB2_messageInputX" drools:dtype="String" itemSubjectRef="__7B613191-5F43-47C7-B337-BA9C46D57AB2_messageInputXItem" name="message"/>
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>_7B613191-5F43-47C7-B337-BA9C46D57AB2_recipientInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_7B613191-5F43-47C7-B337-BA9C46D57AB2_messageInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:sourceRef>recipient</bpmn2:sourceRef>
+        <bpmn2:targetRef>_7B613191-5F43-47C7-B337-BA9C46D57AB2_recipientInputX</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:sourceRef>message</bpmn2:sourceRef>
+        <bpmn2:targetRef>_7B613191-5F43-47C7-B337-BA9C46D57AB2_messageInputX</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:startEvent id="_D5D5A6CD-D3D4-490C-AB20-1F538D1DCF88">
+      <bpmn2:outgoing>_28359338-2ADE-4952-9CFB-3E7EF8A4677B</bpmn2:outgoing>
+    </bpmn2:startEvent>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="mail">
+      <bpmndi:BPMNShape id="shape__D5D5A6CD-D3D4-490C-AB20-1F538D1DCF88" bpmnElement="_D5D5A6CD-D3D4-490C-AB20-1F538D1DCF88">
+        <dc:Bounds height="56" width="56" x="272" y="222"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape__7B613191-5F43-47C7-B337-BA9C46D57AB2" bpmnElement="_7B613191-5F43-47C7-B337-BA9C46D57AB2">
+        <dc:Bounds height="102" width="154" x="443" y="199"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape__BF8F09D3-1A71-4FFB-9CB7-FAE1FCEF8C49" bpmnElement="_BF8F09D3-1A71-4FFB-9CB7-FAE1FCEF8C49">
+        <dc:Bounds height="56" width="56" x="711" y="222"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="edge_shape__D5D5A6CD-D3D4-490C-AB20-1F538D1DCF88_to_shape__7B613191-5F43-47C7-B337-BA9C46D57AB2" bpmnElement="_28359338-2ADE-4952-9CFB-3E7EF8A4677B">
+        <di:waypoint x="300" y="250"/>
+        <di:waypoint x="443" y="250"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape__7B613191-5F43-47C7-B337-BA9C46D57AB2_to_shape__BF8F09D3-1A71-4FFB-9CB7-FAE1FCEF8C49" bpmnElement="_578B9F6E-C6E5-422C-95F9-52A2D10F3BF2">
+        <di:waypoint x="520" y="250"/>
+        <di:waypoint x="739" y="250"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <bpmn2:relationship type="BPSimData">
+    <bpmn2:extensionElements>
+      <bpsim:BPSimData>
+        <bpsim:Scenario id="default" name="Simulationscenario">
+          <bpsim:ScenarioParameters/>
+          <bpsim:ElementParameters elementRef="_D5D5A6CD-D3D4-490C-AB20-1F538D1DCF88">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="_7B613191-5F43-47C7-B337-BA9C46D57AB2">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+        </bpsim:Scenario>
+      </bpsim:BPSimData>
+    </bpmn2:extensionElements>
+    <bpmn2:source>_iF6FMfM5EDu-48TgR4EL2w</bpmn2:source>
+    <bpmn2:target>_iF6FMfM5EDu-48TgR4EL2w</bpmn2:target>
+  </bpmn2:relationship>
+</bpmn2:definitions>

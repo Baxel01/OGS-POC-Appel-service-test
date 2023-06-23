@@ -1,0 +1,9 @@
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot (copie)/src/main/java/org/acme/travels/services/TravellerAuditService.java
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot (copie)/src/main/java/org/acme/mails/services/SendEmailService.java
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot (copie)/src/main/java/org/acme/travels/services/GreetingTravellerService.java
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot (copie)/src/main/java/org/acme/travels/services/HelloService.java
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot (copie)/src/main/java/org/acme/mails/springboot/Email.java
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot (copie)/src/main/java/org/acme/travels/springboot/Traveller.java
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot (copie)/src/main/java/org/acme/travels/services/StoreTravellerService.java
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot (copie)/src/main/java/org/acme/travels/springboot/Address.java
+/home/oem/kogito-projects/kogito-examples/kogito-springboot-examples/process-service-calls-springboot (copie)/src/main/java/org/kie/kogito/tests/KogitoInfinispanSpringbootApplication.java

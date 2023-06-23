@@ -1,0 +1,17 @@
+org/acme/travels/MultiparamsProcess.class
+org/acme/travels/MultiparamsProcessInstance.class
+org/kie/kogito/tests/KogitoInfinispanSpringbootApplication.class
+org/acme/mails/services/SendEmailService.class
+org/drools/project/model/ProjectRuntime.class
+org/acme/travels/springboot/Traveller.class
+org/kie/kogito/app/GlobalObjectMapper$1.class
+org/acme/travels/services/TravellerAuditService.class
+org/acme/travels/springboot/Address.class
+org/acme/travels/Travellers_TaskModelFactory.class
+org/kie/kogito/app/GlobalObjectMapper.class
+org/acme/travels/Multiparams_TaskModelFactory.class
+org/acme/mails/springboot/Email.class
+org/acme/travels/TravellersResource.class
+org/acme/travels/services/GreetingTravellerService.class
+org/acme/travels/services/StoreTravellerService.class
+org/acme/travels/services/HelloService.class
