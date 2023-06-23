@@ -1,152 +1,40 @@
-# Process Service invocation
+# POC Appels de service
 
-## Description
+On test les appels de service, avec:
 
-A quickstart project that processes travellers in the system. It's main purpose is to illustrate local service invocation.
+### Email.java
+```
+java/org/acme/mails/springboot/Email.java
+```
+L'objet Email, avec un destinataire et un message.
 
-This example shows
 
-* invoking local service class that is a injectable bean
-* control flow based on service calls
+### SendEmailService.java
+```
+java/org/acme/mails/services/SendEmailService.java
+```
+Un service, avec la fonction send(). 
+La fonction send() sert à afficher un message dans le terminal.
 
-* New Travelers Diagram
-<p align="center"><img width=75% height=50% src="docs/images/newTravelerProcess.png"></p>
+### mail.bpmn
+```
+resources/org/acme/mails/mail.bpmn
+```
+Le BPMN.
+En recevant un objet mail, il appelle send() du service SendEmailService pourafficher un message dans le terminal.
 
-* New Travelers Diagram Properties
-<p align="center"><img src="docs/images/diagramProperties.png"></p>
 
-* New Travelers Diagram	Properties
-<p align="center"><img src="docs/images/diagramProperties2.png"></p>
+## Tester
 
-* Store Traveler Service Call
-<p align="center"><img src="docs/images/storeTravelerServiceCall.png"></p>
-
-* Store Traveler Service Call
-<p align="center"><img src="docs/images/storeTravelerServiceCall2.png"></p>
-
-* Store Traveler Service Call
-<p align="center"><img src="docs/images/storeTravelerServiceCall3.png"></p>
-
-* Stored Traveler Gateway Yes Connector
-<p align="center"><img src="docs/images/storedTravelerGatewayYesConnector.png"></p>
-
-* Stored Traveler Gateway No Connector
-<p align="center"><img src="docs/images/storedTravelerGatewayNoConnector.png"></p>
-
-* Greet New  Traveler Service Call
-<p align="center"><img src="docs/images/greetNewTravelerServiceCall.png"></p>
-
-* Greet New  Traveler Service Call
-<p align="center"><img src="docs/images/greetNewTravelerServiceCall2.png"></p>
-
-* Audit Traveler Service Call
-<p align="center"><img src="docs/images/auditTravelerServiceCall.png"></p>
-
-* Audit Traveler Service Call
-<p align="center"><img src="docs/images/auditTravelerServiceCall2.png"></p>
-
-* Multi Params Process
-<p align="center"><img src="docs/images/multiParamsProcess.png"></p>
-
-* Multi Params Diagram Properties
-<p align="center"><img src="docs/images/multiParamsDiagramProperties.png"></p>
-
-* Multi Params Diagram Properties
-<p align="center"><img src="docs/images/multiParamsDiagramProperties2.png"></p>
-
-* Hello Service Calls
-<p align="center"><img src="docs/images/helloServiceCalls.png"></p>
-
-* Hello Service Calls
-<p align="center"><img src="docs/images/helloServiceCalls2.png"></p>
-
-## Build and run
-
-### Prerequisites
-
-You will need:
-  - Java 11+ installed
-  - Environment variable JAVA_HOME set accordingly
-  - Maven 3.8.6+ installed
-
-### Compile and Run in Local Dev Mode
-
-```sh
+Pour tester, on lance avec cette commande.
+```
 mvn clean compile spring-boot:run
 ```
 
+Après ça, http://localhost:8080 est actif, et on retrouve la liste des mails qu'on va "envoyer" dans http://localhost:8080/mail
 
-### Compile and Run using uberjar
-
+On peux ajouter des mail depuis un autre terminal avec cette commande:
 ```sh
-mvn clean package
+curl -X POST -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"recipient" : "adressemail@mail.com", "message" : "Salut"}' http://localhost:8080/mail
 ```
 
-To run the generated native executable, generated in `target/`, execute
-
-```sh
-java -jar target/process-service-calls-springboot.jar
-```
-
-### OpenAPI (Swagger) documentation
-[Specification at swagger.io](https://swagger.io/docs/specification/about/)
-
-You can take a look at the [OpenAPI definition](http://localhost:8080/v3/api-docs) - automatically generated and included in this service - to determine all available operations exposed by this service. For easy readability you can visualize the OpenAPI definition file using a UI tool like for example available [Swagger UI](https://editor.swagger.io).
-
-In addition, various clients to interact with this service can be easily generated using this OpenAPI definition.
-
-
-### Submit a traveller
-
-To make use of this application it is as simple as putting a sending request to `http://localhost:8080/travellers`  with following content
-
-```json
-{
-"traveller" : {
-  "firstName" : "John",
-  "lastName" : "Doe",
-  "email" : "jon.doe@example.com",
-  "nationality" : "American",
-  "address" : {
-  	"street" : "main street",
-  	"city" : "Boston",
-  	"zipCode" : "10005",
-  	"country" : "US" }
-  }
-}
-```
-
-Complete curl command can be found below:
-
-```sh
-curl -X POST -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"traveller" : { "firstName" : "John", "lastName" : "Doe", "email" : "jon.doe@example.com", "nationality" : "American","address" : { "street" : "main street", "city" : "Boston", "zipCode" : "10005", "country" : "US" }}}' http://localhost:8080/travellers
-```
-
-After the above command you should see a log similar to the following
-
-<p align="center"><img src="docs/images/springBootNewTravelerLog.png"></p>
-
-### Calling a Simple Hello Service
-
-To call Hello Service send a request to `http://localhost:8080/multiparams`  with following content
-
-```json
-{
-  "name" : "John",
-  "age" : 44,
-}
-```
-
-Complete curl command can be found below:
-
-```sh
-curl -X POST -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"name" : "John", "age" : 44}' http://localhost:8080/multiparams
-```
-
-After the above command you should see a log similar to the following
-
-<p align="center"><img src="docs/images/springBootHelloServiceLog.png"></p>
-
-## Deploying with Kogito Operator
-
-In the [`operator`](operator) directory you'll find the custom resources needed to deploy this example on OpenShift with the [Kogito Operator](https://docs.jboss.org/kogito/release/latest/html_single/#chap_kogito-deploying-on-openshift).
